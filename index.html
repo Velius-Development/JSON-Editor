@@ -24,10 +24,14 @@
             editor.set(JSON.parse(jsonString));
         }
 
-        function getJSON() {
+        function sendJSON() {
             window.chrome.webview.postMessage(JSON.stringify(editor.get()));
         }
 
+
+        document.addEventListener("input", function() {
+            sendJSON();
+        });
 
     </script>
 </body>
